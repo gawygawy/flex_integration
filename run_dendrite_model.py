@@ -9,6 +9,7 @@ from brian2 import prefs, start_scope, SpikeMonitor, run, NeuronGroup, Synapses,
 from brian2.units import (ms, um, pA, nS, uS, ohm, cm, mV, uF, kHz, mvolt)
 from dendrify import Soma, Dendrite, NeuronModel
 from helper_funcs import IHCmodel, filter_sound, combine_clips
+# test 
 
 prefs.codegen.target = 'numpy'
 
