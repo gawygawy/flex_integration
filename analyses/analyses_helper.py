@@ -1,15 +1,9 @@
-import brian2hears as bh
-from brian2hears import dB
-from brian2 import second
-import subprocess
-import json
+
+import os
 import numpy as np
 import matplotlib.pyplot as plt
-import librosa
-from functools import partial
-import pandas as pd
-import os 
 import seaborn as sns 
+from functools import partial
 
 def bin_counts(x, window):
     '''
