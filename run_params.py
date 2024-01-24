@@ -14,8 +14,8 @@ def run_subprocess(script, param_args):
     output = json.loads(result.stdout)
     return output   
 
-clip_files_dir = "/mnt/rds/gwa18/projects/kozlovlab_rds2/live/Grace/data/clips"
-clip_lag_info = pd.read_csv("clip_delays.csv")
+clip_files_dir = "./data/audio_clips"
+clip_lag_info = pd.read_csv("./data/clip_delays.csv")
 clip_names = clip_lag_info.drop_duplicates(subset = ['A', 'B'])
 
 param_list = []
@@ -51,4 +51,4 @@ pool = Pool(processes=50)
 outputs = pool.starmap(run_subprocess, zip(scripts, param_list)) 
 spktimes_df = pd.DataFrame(outputs)
 
-spktimes_df.to_pickle("b.pkl")
+spktimes_df.to_pickle("./data/simulations/results.pkl")
