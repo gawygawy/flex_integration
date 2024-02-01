@@ -51,4 +51,4 @@ pool = Pool(processes=50)
 outputs = pool.starmap(run_subprocess, zip(scripts, param_list)) 
 spktimes_df = pd.DataFrame(outputs)
 
-spktimes_df.to_pickle("./data/simulations/results.pkl")
+spktimes_df.to_pickle("./data/model_results/r.pkl")
