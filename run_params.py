@@ -19,12 +19,11 @@ clip_lag_info = pd.read_csv("./data/clip_delays.csv")
 clip_names = clip_lag_info.drop_duplicates(subset = ['A', 'B'])
 
 param_list = []
-n_iter = 1
+n_iter = 10
 for index, row in clip_names.iterrows():
     clipA = os.path.join(clip_files_dir, row['A'] + '.wav')
     clipB = os.path.join(clip_files_dir, row['B'] + '.wav')
-    #for delay in [-0.02, -0.01, 0, 0.01, 0.02]:
-    for delay in [-0.02]:
+    for delay in [-0.02, -0.01, 0, 0.01, 0.02]:
         for b_val in [200]:
             for nmda in [0.0]:
                 for ampa in [0.55]: # default is 0.5
@@ -51,4 +50,4 @@ pool = Pool(processes=50)
 outputs = pool.starmap(run_subprocess, zip(scripts, param_list)) 
 spktimes_df = pd.DataFrame(outputs)
 
-spktimes_df.to_pickle("./data/model_results/r.pkl")
+spktimes_df.to_pickle("./data/model_results/results.pkl")
